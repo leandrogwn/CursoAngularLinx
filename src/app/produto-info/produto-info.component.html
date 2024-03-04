@@ -1,0 +1,43 @@
+<div>
+    <h2 [ngClass]="{
+        'destacado': destaque,
+        'tamanho-grande': tamanhoGrande
+    }">Informações do produto</h2>
+
+    <div [ngStyle]="estilo">Aqui listamos nosso produtos</div>
+
+    <div [ngSwitch]="categoriaSelecionada">
+        <div *ngSwitchCase="'Eletrônicos'">
+            <h3>Eletrônicos</h3>
+            <p>Oferecemos produtos Eletrônicos</p>
+            <div>
+                <h2>{{ nomeProduto }}</h2>
+                <p>Preço: {{ preco | currency:'BRL':'R$ ' }}</p>
+                <p>Data de Lançamento: {{ dataLancamento | date:'dd/MM/yyyy'}}</p>
+                <p>Descrição:{{ descricao }}</p>
+            </div>
+        </div>
+        <div *ngSwitchCase="'Vestuário'">
+            <h3>Vestuário</h3>
+            <p>Oferecemos produtos Vestuário</p>
+        </div>
+        <div *ngSwitchCase="'Alimentos'">
+            <h3>Alimentos</h3>
+            <p>Oferecemos produtos Alimentos</p>
+        </div>
+        <div *ngSwitchDefault>
+            <h3>Categoria não encontrada</h3>
+            <p>A categoria selecionada não corresponde a nenhuma das opções disponíveis</p>
+        </div>
+    </div>
+    <br>
+    <button (click)="AlterarCategoria('Eletrônicos')">Eletrônicos</button>
+    <button (click)="AlterarCategoria('Vestuário')">Vestuário</button>
+    <button (click)="AlterarCategoria('Alimentos')">Alimentos</button>
+    <button (click)="AlterarCategoria('Outros')">Outros</button>
+    <br><hr>
+    <button (click)="AlternarDestaque()">Alternar destaque</button>
+    <button (click)="AlternarTamanho()">Alternar tamanho</button>
+    <br><hr>
+    <button (click)="AlternarEstilo()">Alternar estilo</button>
+</div>

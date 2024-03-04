@@ -1,0 +1,40 @@
+<form #meuForm="ngForm" (ngSubmit)="enviarFormulario(meuForm)">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" [(ngModel)]="nome" required minlength="3">
+    <div *ngIf="meuForm.controls['nome']?.invalid && (meuForm.controls['nome'].touched || meuForm.submitted)">
+        Nome é obrigatório.
+    </div>
+    <label for="email">E-mail</label>
+    <input type="email" id="email" name="email" [(ngModel)]="email" required email>
+    <div *ngIf="meuForm.controls['email']?.invalid && (meuForm.controls['email'].touched || meuForm.submitted)&&meuForm.reset()">
+        E-mail é obrigatório.
+    </div>
+    <br>
+    <label for="endereco">Endereço</label>
+    <input type="text" name="endereco" id="endereco" [(ngModel)]="endereco">
+    <br>
+    <label>Genero:</label>
+    <label>
+        <input type="radio" name="genero" id="genero" value="m" [(ngModel)]="genero"> Masculino
+    </label>
+    <label>
+        <input type="radio" name="genero" id="genero" value="f" [(ngModel)]="genero"> Feminino
+    </label>
+    <label>
+        <input type="radio" name="genero" id="genero" value="a" [(ngModel)]="genero"> Air Fryer
+    </label>
+    <br>
+    <label>Hobbies</label>
+    <label><input type="checkbox" name="viagem" id="hobbieviagem" [(ngModel)]="hobbieViagem">Viagem</label>
+    <label><input type="checkbox" name="programar" id="hobbieprogramar" [(ngModel)]="hobbieProgramar">Programar</label>
+    <label><input type="checkbox" name="livros" id="hobbielivro" [(ngModel)]="hobbieLivro">Ler livros</label>
+    <br>
+    <label for="estado">Escolha um estado:</label>
+    <select name="estado" id="estado" [(ngModel)]="estado">
+        <option value="" selected>Escolha...</option>
+        <option value="sp">São Paulo</option>
+        <option value="rj">Rio de Janeiro</option>
+    </select>
+    <br>
+    <button type="submit">Enviar</button>
+</form>

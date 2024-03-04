@@ -1,0 +1,38 @@
+<div>
+    <h2>Dados da API JSONPlaceholder</h2>
+    <p>Id: {{ dados$.id }}</p>
+    <p>Titulo: {{ dados$.title }}</p>
+    <p>Corpo: {{ dados$.body }}</p>
+</div>
+
+<button (click)="enviarNovoPost()">Enviar Novo Post</button>
+<button (click)="atualizarRecurso()">Atualizar recurso</button>
+<button (click)="excluirRecurso()">Excluir recurso</button>
+<button (click)="novoRecursoComCabecalho()">Novo recurso com cabeçalho customizado</button>
+
+<div *ngIf="dadosPost">
+    <h2>Resposta do post</h2>
+    <p>Id do novo post: {{ dadosPost.id }}</p>
+    <p>Title do novo post: {{ dadosPost.title }}</p>
+    <p>Dados do novo post: {{ dadosPost.body }}</p>
+    <p>User do novo post: {{ dadosPost.userId }}</p>
+</div>
+
+<div *ngIf="dadosAtualizacao">
+    <h2>Resposta do PUT</h2>
+    <p>ID do recurso atualizado: {{ dadosAtualizacao.id }}</p>
+    <p>Título do recurso atualizado: {{ dadosAtualizacao.title }}</p>
+</div>
+
+<div *ngIf="dadosExclusao">
+    <h2>Resposta do delete</h2>
+    <p>Registro excluído com sucesso.</p>
+    
+</div>
+
+<div *ngIf="dadosCabecalhoPersonalizado">
+    <h2>Resposta do post com cabeçalho personalizado</h2>
+    <p>id do novo post: {{ dadosCabecalhoPersonalizado.id }}</p>
+    <p>Título do novo post: {{ dadosCabecalhoPersonalizado.title }}</p>
+    <p>Corpo do novo post: {{ dadosCabecalhoPersonalizado.body }}</p>
+</div>

@@ -1,0 +1,6 @@
+<div>
+    <p>{{nomeTarefa}}</p>
+    <span *ngIf="concluida">Concluída</span>
+    <span *ngIf="!concluida">Pendente</span>
+    <button (click)="marcarConcluida()">Marcar como concluida</button>
+</div>
